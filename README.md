@@ -1,7 +1,7 @@
 # sbt-shading
 
 
-[![Build Status](https://travis-ci.org/coursier/sbt-shading.svg?branch=master)](https://travis-ci.org/coursier/sbt-shading)
+[![CI](https://github.com/coursier/sbt-shading/actions/workflows/ci.yml/badge.svg)](https://github.com/coursier/sbt-shading/actions/workflows/ci.yml)
 
 Enable the plugin with
 ```scala
