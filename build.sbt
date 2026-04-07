@@ -13,6 +13,8 @@ inThisBuild(List(
   )
 ))
 
+name := "sbt-shading"
+
 enablePlugins(ScriptedPlugin)
 
 def scala212 = "2.12.20"
