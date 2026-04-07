@@ -211,7 +211,7 @@ object ShadingPlugin extends AutoPlugin {
       val shadedJars0 = shadedJars.value
       val validPrefixes = validNamespaces.value.map(_.replace('.', '/') + "/")
       val validEntries = autoImport.validEntries.value
-      val orig = packageBin.in(Compile).value
+      val orig = (Compile / packageBin).value
       val dest = orig.getParentFile / s"${orig.getName.stripSuffix(".jar")}-shading.jar"
       if (!dest.exists() || dest.lastModified() < orig.lastModified()) {
         import com.eed3si9n.jarjar.JJProcessor
@@ -226,7 +226,7 @@ object ShadingPlugin extends AutoPlugin {
       dest
     },
 
-    addArtifact(artifact.in(Compile, packageBin), shadedPackageBin),
+    addArtifact(Compile / packageBin / artifact, shadedPackageBin),
 
     publishLocal := {
       reallyUpdateIvyXml.dependsOn(publishLocal).value
