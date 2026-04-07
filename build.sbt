@@ -38,5 +38,7 @@ scriptedBufferLog := false
 sbtPlugin := true
 (pluginCrossBuild / sbtVersion) := targetSbtVersion
 
+scriptedSbt := "1.9.9"
+
 libraryDependencies += "com.eed3si9n.jarjarabrams" %% "jarjar-abrams-core" % "1.14.1"
 
