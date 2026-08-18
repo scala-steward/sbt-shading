@@ -119,11 +119,7 @@ object ShadingPlugin extends AutoPlugin with ShadingPluginCompat {
   import autoImport._
 
   private def orgName(modId: ModuleID, scalaModuleInfoOpt: Option[ScalaModuleInfo]): (String, String) = {
-    val crossVer = modId.crossVersion
-    val transformName = scalaModuleInfoOpt
-      .flatMap(scalaInfo => CrossVersion(crossVer, scalaInfo.scalaFullVersion, scalaInfo.scalaBinaryVersion))
-      .getOrElse(identity[String] _)
-    (modId.organization, transformName(modId.name))
+    (modId.organization, CrossVersion(modId, scalaModuleInfoOpt).fold(modId.name)(_(modId.name)))
   }
 
   private def onlyNamespaces(isValid: String => Boolean, jar: File, println: String => Unit): Unit = {
