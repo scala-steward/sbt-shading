@@ -86,4 +86,4 @@ TaskKey[Unit]("scriptedTestSbt2") := Def.taskDyn {
   scripted.toTask(arg)
 }.value
 
-libraryDependencies += "com.eed3si9n.jarjarabrams" %% "jarjar-abrams-core" % "1.18.0"
+libraryDependencies += "com.eed3si9n.jarjarabrams" %% "jarjar-abrams-core" % "1.18.1"
